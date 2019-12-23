@@ -37,6 +37,7 @@ describe('auth routes', () => {
         password: 'hype'
       })
       .then(res => {
+        expect(res.header['set-cookie'][0]).toEqual(expect.stringContaining('session='));
         expect(res.body).toEqual({
           _id: expect.any(String),
           name: 'Dan',
@@ -54,6 +55,7 @@ describe('auth routes', () => {
         password: 'hype'
       })
       .then(res => {
+        expect(res.header['set-cookie'][0]).toEqual(expect.stringContaining('session='));
         expect(res.body).toEqual({
           _id: user.id,
           name: 'Dan',
