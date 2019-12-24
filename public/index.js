@@ -12,7 +12,7 @@ const displaySignup = () => {
       <button>Signup</button>
     </fieldset>
     <p>Already a user?</p>
-    <button id="display-login>Click here to log in!</button>
+    <button id="display-login">Click here to log in!</button>
   `;
 
   form
@@ -37,6 +37,8 @@ const displaySignup = () => {
         window.location.reload();
       });
     });
+
+    root.appendChild(form);
 
     const loginButton = document.getElementById('display-login');
 
@@ -80,20 +82,29 @@ const displayLogin = () => {
       });
     });
 
+    root.appendChild(form);
+
     const signupButton = document.getElementById('display-signup');
 
     signupButton
       .addEventListener('click', displaySignup);
 };
 
+const displayHomepage = user => {
+  const welcome = document.createElement('div');
+  welcome.innerHTML = `
+    <h1>Welcome ${user.name}!</h1>
+  `;
+}
+
 fetch('/api/v1/auth/verify', {
   credentials: 'include'
 })
-  .then(res => res.json())
-  .then(user => {
-    if(user){
-      displayHomepage(user);
-    } else {
-      displayLogin();
-    }
-  });
+.then(res => res.json())
+.then(user => {
+  if(user._id){
+    displayHomepage(user);
+  } else {
+    displayLogin();
+  }
+});
