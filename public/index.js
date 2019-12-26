@@ -117,7 +117,7 @@ fetch('/api/v1/auth/verify', {
 .then(res => res.json())
 .then(user => {
   if(user._id){
-    displayHomepage(user);
+    window.location.href = './home.html';
   } else {
     displayLogin();
   }
