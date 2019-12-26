@@ -94,7 +94,21 @@ const displayHomepage = user => {
   const welcome = document.createElement('div');
   welcome.innerHTML = `
     <h1>Welcome ${user.name}!</h1>
+    <button id="logout">Log out</button>
   `;
+
+  root.appendChild(welcome);
+
+  const deleteCookie = (name) => {
+    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    window.location.reload();
+  };
+
+  const logoutButton = document.getElementById('logout');
+  logoutButton
+    .addEventListener('click', () => {
+      deleteCookie('session');
+    });
 }
 
 fetch('/api/v1/auth/verify', {
