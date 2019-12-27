@@ -13,7 +13,7 @@ const displaySignup = () => {
     </fieldset>
     <p>Already a user?</p>
     <button id="display-login">Click here to log in!</button>
-  `;
+  `;  
 
   form
     .addEventListener('submit', event => {
@@ -32,18 +32,18 @@ const displaySignup = () => {
         },
         body: JSON.stringify(user)
       })
-      .then(res => res.json())
-      .then(() => {
-        window.location.reload();
-      });
+        .then(res => res.json())
+        .then(() => {
+          window.location.reload();
+        });
     });
 
-    root.appendChild(form);
+  root.appendChild(form);
 
-    const loginButton = document.getElementById('display-login');
+  const loginButton = document.getElementById('display-login');
 
-    loginButton
-      .addEventListener('click', displayLogin);
+  loginButton
+    .addEventListener('click', displayLogin);
 };
 
 const displayLogin = () => {
@@ -76,18 +76,18 @@ const displayLogin = () => {
         },
         body: JSON.stringify(user)
       })
-      .then(res => res.json())
-      .then(() => {
-        window.location.reload();
-      });
+        .then(res => res.json())
+        .then(() => {
+          window.location.reload();
+        });
     });
 
-    root.appendChild(form);
+  root.appendChild(form);
 
-    const signupButton = document.getElementById('display-signup');
+  const signupButton = document.getElementById('display-signup');
 
-    signupButton
-      .addEventListener('click', displaySignup);
+  signupButton
+    .addEventListener('click', displaySignup);
 };
 
 const displayHomepage = user => {
@@ -109,16 +109,16 @@ const displayHomepage = user => {
     .addEventListener('click', () => {
       deleteCookie('session');
     });
-}
+};
 
 fetch('/api/v1/auth/verify', {
   credentials: 'include'
 })
-.then(res => res.json())
-.then(user => {
-  if(user._id){
-    window.location.href = './home.html';
-  } else {
-    displayLogin();
-  }
-});
+  .then(res => res.json())
+  .then(user => {
+    if(user._id){
+      window.location.href = './home.html';
+    } else {
+      displayLogin();
+    }
+  });

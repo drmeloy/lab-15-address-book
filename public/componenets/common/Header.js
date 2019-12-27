@@ -1,20 +1,26 @@
 import Component from '../Component.js';
+import deleteCookie from '../util/deleteCookie.js';
 
 class Header extends Component {
   onRender(dom){
-
+    const logoutButton = dom.querySelector('#logout');
+    logoutButton
+      .addEventListener('click', () => {
+        deleteCookie('session');
+      });
   }
 
   renderHTML() {
     return /*html*/ `
       <header>
         <ul>
-          <li>Home</li>
+          <a href="../home.html">Home</a>
           <li>Address book</li>
-          <li>Add an entry</li>
+          <a href="../entry.html">Add an entry</a>
+          <button id="logout">Log out</button>
         </ul>
       </header>
-    `
+    `;
   }
 }
 
