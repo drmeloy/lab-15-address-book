@@ -1,0 +1,9 @@
+.address-entry {
+  border: 1px solid black;
+  display: inline-flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 28px;
+  background: aliceblue;
+}

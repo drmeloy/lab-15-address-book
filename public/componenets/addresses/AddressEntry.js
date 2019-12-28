@@ -9,15 +9,12 @@ class AddressEntry extends Component {
     const { address } = this.props;
 
     return /*html*/ `
-    <div class="address-entry">
-      ${address.firstName}
-      ${address.lastName}
-      ${address.address}
-      ${address.city}
-      ${address.state}
-      ${address.country}
-      ${address.zipcode}
-    </div>
+    <section class="address-entry">
+      <div>${address.firstName} ${address.lastName}</div>
+      <div>${address.address}</div>
+      <div>${address.city}, ${address.state} ${address.zipcode}</div>
+      <div>${address.country}</div>
+    </section>
     `;
   }
 }
