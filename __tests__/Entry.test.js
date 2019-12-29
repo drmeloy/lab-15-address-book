@@ -22,7 +22,8 @@ describe('entry routes', () => {
   let entry;
   beforeEach(async() => {
     entry = await Entry.create({
-      name: 'Tester',
+      firstName: 'Tester',
+      lastName: 'McTesterton',
       address: '123 Test Dr.',
       city: 'Testville',
       state: 'Texas',
@@ -36,7 +37,8 @@ describe('entry routes', () => {
     return request(app)
       .post('/api/v1/entry')
       .send({
-        name: 'Tester',
+        firstName: 'Tester',
+        lastName: 'McTesterton',
         address: '123 Test Dr.',
         city: 'Testville',
         state: 'Texas',
@@ -47,7 +49,8 @@ describe('entry routes', () => {
       .then(res => {
         expect(res.body).toEqual({
           _id: expect.any(String),
-          name: 'Tester',
+          firstName: 'Tester',
+          lastName: 'McTesterton',
           address: '123 Test Dr.',
           city: 'Testville',
           state: 'Texas',
@@ -65,7 +68,8 @@ describe('entry routes', () => {
       .then(res => {
         expect(res.body).toEqual([{
           _id: entry.id,
-          name: 'Tester',
+          firstName: 'Tester',
+          lastName: 'McTesterton',
           address: '123 Test Dr.',
           city: 'Testville',
           state: 'Texas',
@@ -83,7 +87,8 @@ describe('entry routes', () => {
       .then(res => {
         expect(res.body).toEqual({
           _id: entry.id,
-          name: 'Tester',
+          firstName: 'Tester',
+          lastName: 'McTesterton',
           address: '123 Test Dr.',
           city: 'Testville',
           state: 'Texas',
@@ -98,11 +103,12 @@ describe('entry routes', () => {
   it('updates an entry by id', () => {
     return request(app)
       .patch(`/api/v1/entry/${entry.id}`)
-      .send({ name: 'Megatest' })
+      .send({ firstName: 'Megatest' })
       .then(res => {
         expect(res.body).toEqual({
           _id: entry.id,
-          name: 'Megatest',
+          firstName: 'Megatest',
+          lastName: 'McTesterton',
           address: '123 Test Dr.',
           city: 'Testville',
           state: 'Texas',
@@ -120,7 +126,8 @@ describe('entry routes', () => {
       .then(res => {
         expect(res.body).toEqual({
           _id: entry.id,
-          name: 'Tester',
+          firstName: 'Tester',
+          lastName: 'McTesterton',
           address: '123 Test Dr.',
           city: 'Testville',
           state: 'Texas',
