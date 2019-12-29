@@ -17,7 +17,6 @@ class EntryForm extends Component {
           country: formData.get('country'),
           zipcode: formData.get('zipcode')
         };
-        console.log(entry);
         
 
         fetch('/api/v1/entry', {
