@@ -5,10 +5,28 @@ const app = require('../lib/app');
 const connect = require('../lib/utils/connect');
 const mongoose = require('mongoose');
 const Entry = require('../lib/models/Entry');
+const User = require('../lib/models/User');
 
 describe('entry routes', () => {
-  beforeAll(() => {
+  let agent;
+  beforeAll(async() => {
     connect();
+    
+    agent = request.agent(app);
+
+    await User
+      .create({
+        name: 'Megaman',
+        email: 'mega@man.com',
+        password: 'somega'
+      });
+
+    await agent
+      .post('/api/v1/auth/login')
+      .send({
+        email:'mega@man.com',
+        password: 'somega'
+      });
   });
 
   beforeEach(() => {
@@ -33,8 +51,26 @@ describe('entry routes', () => {
     });
   });
 
-  it('creates a new entry', () => {
+  it('requires authorization to post', () => {
     return request(app)
+      .post('/api/v1/entry')
+      .send({
+        firstName: 'Tester',
+        lastName: 'McTesterton',
+        address: '123 Test Dr.',
+        city: 'Testville',
+        state: 'Texas',
+        country: 'United States',
+        zipcode: '12345',
+        groups: ['friends']
+      })
+      .then(res => {
+        expect(res.statusCode).toEqual(500);
+      });
+  });
+
+  it('creates a new entry', async() => {
+    return agent
       .post('/api/v1/entry')
       .send({
         firstName: 'Tester',
@@ -57,27 +93,51 @@ describe('entry routes', () => {
           country: 'United States',
           zipcode: '12345',
           groups: ['friends'],
+          userId: expect.any(String),
           __v: 0
         });
       });
   });
 
-  it('finds all entries', () => {
+  it('requires authorization to get', () => {
     return request(app)
       .get('/api/v1/entry')
       .then(res => {
-        expect(res.body).toEqual([{
-          _id: entry.id,
-          firstName: 'Tester',
-          lastName: 'McTesterton',
-          address: '123 Test Dr.',
-          city: 'Testville',
-          state: 'Texas',
-          country: 'United States',
-          zipcode: '12345',
-          groups: ['friends'],
-          __v: 0
-        }]);
+        expect(res.statusCode).toEqual(500);
+      });
+  });
+
+  it('finds all entries', async() => {
+    return agent
+      .post('/api/v1/entry')
+      .send({
+        firstName: 'Tester',
+        lastName: 'McTesterton',
+        address: '123 Test Dr.',
+        city: 'Testville',
+        state: 'Texas',
+        country: 'United States',
+        zipcode: '12345',
+        groups: ['friends']
+      })
+      .then(() => {
+        return agent
+          .get('/api/v1/entry')
+          .then(res => {
+            expect(res.body).toEqual([{
+              _id: expect.any(String),
+              firstName: 'Tester',
+              lastName: 'McTesterton',
+              address: '123 Test Dr.',
+              city: 'Testville',
+              state: 'Texas',
+              country: 'United States',
+              zipcode: '12345',
+              groups: ['friends'],
+              userId: expect.any(String),
+              __v: 0
+            }]);
+          });
       });
   });
 
