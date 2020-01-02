@@ -1,0 +1,12 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#greeting {
+  text-align: center;
+  width: 740px;
+  line-height: 1.5em;
+}

@@ -8,10 +8,13 @@ class App extends Component {
   }
 
   renderHTML(){
+    const name = this.props;
+
     return /*html*/`
     <div>
-        <!-- header goes here -->
         <main>
+         <h1>What's up ${name}!</h1>
+         <p id="greeting">Welcome back! If you have new addresses or contact information you want to save, add them to your Address Book by clicking the "Add An Entry" link on navigation bar above. If you want to view or edit your existing entries, click the "Address Book" link instead.</p>
         </main>
     </div>
 `;

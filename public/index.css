@@ -1,0 +1,20 @@
+body, form, fieldset {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#user-button {
+  width: 65px;
+  margin: 0 auto;
+}
+
+#switcher {
+  margin-bottom: 3px;
+}

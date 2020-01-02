@@ -15,8 +15,8 @@ class Header extends Component {
       <header>
         <ul>
           <a href="../home.html">Home</a>
-          <a href="../addresses.html">Address book</a>
-          <a href="../entry.html">Add an entry</a>
+          <a href="../addresses.html">Address Book</a>
+          <a href="../entry.html">Add An Entry</a>
           <button id="logout">Log out</button>
         </ul>
       </header>

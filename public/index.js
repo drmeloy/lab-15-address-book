@@ -9,9 +9,9 @@ const displaySignup = () => {
       <input name="name" type="text" placeholder="Name">
       <input name="email" type="text" placeholder="Email">
       <input name="password" type="password" placeholder="Password">
-      <button>Signup</button>
+      <button id="user-button">Signup</button>
     </fieldset>
-    <p>Already a user?</p>
+    <p id="switcher">Already a user?</p>
     <button id="display-login">Click here to log in!</button>
   `;  
 
@@ -51,11 +51,11 @@ const displayLogin = () => {
   form.innerHTML = `
     <fieldset>
       <legend>Login</legend>
-      <input name="email" type="text" placeholder="email">
-      <input name="password" type="password" placeholder="password">
-      <button>Log In</button>
+      <input name="email" type="text" placeholder="Email">
+      <input name="password" type="password" placeholder="Password">
+      <button id="user-button">Log In</button>
     </fieldset>
-    <p>Not yet a user?</p>
+    <p id="switcher">Not yet a user?</p>
     <button id="display-signup">Click here to sign up!</button>
   `;
 

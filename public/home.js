@@ -1,4 +1,12 @@
 import App from './componenets/common/App.js';
+import getName from './componenets/util/getName.js';
 
-const app = new App();
-document.body.prepend(app.renderDOM());
+getName()
+  .then(name => {    
+    const props = name;
+    const app = new App(props);
+    document.body.prepend(app.renderDOM());
+  });
+
+
+
