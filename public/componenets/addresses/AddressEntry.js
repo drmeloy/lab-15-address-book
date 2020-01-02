@@ -9,12 +9,13 @@ class AddressEntry extends Component {
     const { address } = this.props;
 
     return /*html*/ `
-    <section class="address-entry">
+    <div class="address-entry">
+      <div class="edit-icon"><i class="fas fa-user-edit"></i><span class="edit-tooltip">Edit</span></div>
       <div>${address.firstName} ${address.lastName}</div>
       <div>${address.address}</div>
       <div>${address.city}, ${address.state} ${address.zipcode}</div>
       <div>${address.country}</div>
-    </section>
+    </div>
     `;
   }
 }
