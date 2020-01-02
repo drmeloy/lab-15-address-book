@@ -1,7 +1,3 @@
-body {
-  background: aliceblue;
-}
-
 form {
   display: flex;
   justify-content: center;
@@ -11,17 +7,21 @@ fieldset {
   display: flex;
   flex-direction: column;
   background: blanchedalmond;
+  margin-top: 45px;
+  border-radius: 10px;
 }
 
 legend {
   background: cornsilk;
   border: 2px solid gray;
-  padding: 4px;
+  padding: 4px 12px;
   border-radius: 12px;
+  font-family: 'Inria Serif', serif;
 }
 
 input {
   padding: 10px;
   margin: 15px;
-  background: lemonchiffon;
+  background: floralwhite;
+  font-family: 'Open Sans', sans-serif;
 }

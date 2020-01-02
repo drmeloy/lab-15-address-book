@@ -8,5 +8,12 @@ main {
 #greeting {
   text-align: center;
   width: 740px;
+  margin: 0;
   line-height: 1.5em;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-family: 'Gelasio', serif;
+  margin-top: 45px;
 }
