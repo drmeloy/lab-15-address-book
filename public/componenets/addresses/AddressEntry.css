@@ -74,3 +74,23 @@ input.edit-city, input.edit-state, input.edit-zip {
   margin: 0 auto;
   margin-top: 10px;
 }
+
+.empty-notification {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  text-align: center;
+  width: 740px;
+  margin: 0;
+  line-height: 1.5em;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-family: 'Gelasio', serif;
+  margin-top: 45px;
+}
