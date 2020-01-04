@@ -20,6 +20,33 @@ class AddressEntry extends Component {
           <button id="edit-submit">Submit</button>
         </form>
       `;
+
+      const editForm = dom.querySelector('#edit-form');
+      editForm.addEventListener('submit', event => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const entry = {
+          firstName: formData.get('first-name'),
+          lastName: formData.get('last-name'),
+          address: formData.get('address'),
+          city: formData.get('city'),
+          state: formData.get('state'),
+          country: formData.get('country'),
+          zipcode: formData.get('zipcode')
+        };
+
+        fetch(`/api/v1/entry/${address._id}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(entry)
+        })
+          .then(res => res.json())
+          .then(() => {
+            window.location.reload();
+          });
+      });
     });
   }
 
