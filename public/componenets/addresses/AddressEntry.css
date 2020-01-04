@@ -10,6 +10,12 @@
   border-radius: 28px;
   background: aliceblue;
   font-family: 'Open Sans', sans-serif;
+  width: 265px;
+}
+
+.name .address .city-state-zip .country {
+  display: flex;
+  justify-content: center;
 }
 
 .edit-icon {
@@ -35,4 +41,28 @@
 .edit-icon:hover span {
   visibility: visible;
   transition: visible .3s;
+}
+
+#edit-form, input.edit-name, input.edit-address, input.edit-city, input.edit-state, input.edit-zip, input.edit-country {
+  text-align: center;
+}
+
+input.edit-name {
+  width: 43%;
+}
+
+input.edit-address {
+  width: 90%;
+}
+
+input.edit-city, input.edit-state, input.edit-zip {
+  width: 28%;
+}
+
+#edit-submit {
+  display: block;
+  width: 64px;
+  height: 24px;
+  margin: 0 auto;
+  margin-top: 10px;
 }
