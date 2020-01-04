@@ -48,6 +48,17 @@ class AddressEntry extends Component {
           });
       });
     });
+
+    const deleteButton = dom.querySelector('.delete-icon');
+    deleteButton.addEventListener('click', () => {
+      fetch(`/api/v1/entry/${address._id}`, {
+        method: 'DELETE'
+      })
+        .then(res => res.json())
+        .then(() => {
+          window.location.reload();
+        });
+    });
   }
 
   renderHTML(){
@@ -57,6 +68,7 @@ class AddressEntry extends Component {
     <div>
       <div class="address-entry">
         <div class="edit-icon"><i>Woo!</i><span class="edit-tooltip">Edit</span></div>
+        <div class="delete-icon">Delete</div>
         <div class="name">${address.firstName} ${address.lastName}</div>
         <div class="address">${address.address}</div>
         <div class="city-state-zip">${address.city}, ${address.state} ${address.zipcode}</div>

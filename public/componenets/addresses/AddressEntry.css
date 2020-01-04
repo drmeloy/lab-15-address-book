@@ -43,6 +43,14 @@
   transition: visible .3s;
 }
 
+.delete-icon {
+  position: absolute;
+  left: 7px;
+  bottom: 4px;
+  font-size: 18px;
+  color: #00000045;
+}
+
 #edit-form, input.edit-name, input.edit-address, input.edit-city, input.edit-state, input.edit-zip, input.edit-country {
   text-align: center;
 }
