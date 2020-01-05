@@ -7,8 +7,6 @@ class AddressList extends Componenet {
     const addressList = dom.querySelector('#address-list');    
     fetchAddresses()
       .then(fetchedAddresses => {
-        console.log(fetchedAddresses);
-        
         if(fetchedAddresses.length < 1){
           const emptyNotification = document.createElement('div');
           emptyNotification.classList.add('empty-notification');

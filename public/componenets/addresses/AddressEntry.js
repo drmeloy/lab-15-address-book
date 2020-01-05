@@ -67,8 +67,8 @@ class AddressEntry extends Component {
     return /*html*/ `
     <div>
       <div class="address-entry">
-        <div class="edit-icon"><i>Woo!</i><span class="edit-tooltip">Edit</span></div>
-        <div class="delete-icon">Delete</div>
+        <div class="edit-icon"><i class="fas fa-user-edit"></i><span class="edit-tooltip">Edit</span></div>
+        <div class="delete-icon"><i class="fas fa-trash-alt"></i><span class="delete-tooltip">Delete</span></div>
         <div class="name">${address.firstName} ${address.lastName}</div>
         <div class="address">${address.address}</div>
         <div class="city-state-zip">${address.city}, ${address.state} ${address.zipcode}</div>
@@ -80,5 +80,3 @@ class AddressEntry extends Component {
 }
 
 export default AddressEntry;
-
-/* <i class="fas fa-user-edit"></i>  */
