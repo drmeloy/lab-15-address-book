@@ -1,0 +1,120 @@
+#address-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.address-entry {
+  position: relative;
+  border: 1px solid black;
+  display: inline-flex;
+  flex-direction: column;
+  padding: 15px 25px;
+  align-items: center;
+  line-height: 1.3em;
+  margin: 10px;
+  border-radius: 28px;
+  background: aliceblue;
+  font-family: 'Open Sans', sans-serif;
+  width: 265px;
+}
+
+.name .address .city-state-zip .country {
+  display: flex;
+  justify-content: center;
+}
+
+.edit-icon {
+  position: absolute;
+  right: 7px;
+  bottom: 4px;
+  font-size: 18px;
+  color: #00000045;
+}
+
+.edit-icon span{
+  visibility: hidden;
+  position: absolute;
+  right: 27px;
+  font-size: 12px;
+}
+
+.edit-icon:hover {
+  color: darkgoldenrod;
+  transition: color .3s;
+  cursor: pointer;
+}
+
+.edit-icon:hover span {
+  visibility: visible;
+  transition: visible .3s;
+}
+
+.delete-icon {
+  position: absolute;
+  left: 11px;
+  bottom: 1px;
+  font-size: 18px;
+  color: #00000045;
+}
+
+.delete-icon span {
+  visibility: hidden;
+  font-size: 12px;
+  margin-left: 2px;
+}
+
+.delete-icon:hover {
+  color: darkslateblue;
+  transition: color .3s;
+  cursor: pointer;
+}
+
+.delete-icon:hover span {
+  visibility: visible;
+  transition: visible .3s;
+}
+
+#edit-form, input.edit-name, input.edit-address, input.edit-city, input.edit-state, input.edit-zip, input.edit-country {
+  text-align: center;
+}
+
+input.edit-name {
+  width: 43%;
+}
+
+input.edit-address {
+  width: 90%;
+}
+
+input.edit-city, input.edit-state, input.edit-zip {
+  width: 28%;
+}
+
+#edit-submit {
+  display: block;
+  width: 64px;
+  height: 24px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.empty-notification {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  text-align: center;
+  width: 740px;
+  margin: 0;
+  line-height: 1.5em;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-family: 'Gelasio', serif;
+  margin-top: 45px;
+}
