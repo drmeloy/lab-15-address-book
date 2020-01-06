@@ -1,3 +1,9 @@
+#address-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 .address-entry {
   position: relative;
   border: 1px solid black;
@@ -55,7 +61,7 @@
 .delete-icon span {
   visibility: hidden;
   font-size: 12px;
-  margin-left: 1px;
+  margin-left: 2px;
 }
 
 .delete-icon:hover {
